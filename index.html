@@ -133,17 +133,43 @@
         }
 
         @media print {
+            body * {
+                visibility: hidden !important;
+            }
+            table, table * {
+                visibility: visible !important;
+            }
+            th, td:not(:last-child) {
+                display: none !important;
+            }
+            table {
+                position: static;
+                left: 0;
+                top: 0;
+                width: 100% !important;
+                max-width: none !important;
+                box-shadow: none !important;
+                background: none !important;
+                border: none !important;
+            }
             tr {
                 page-break-inside: avoid !important;
                 break-inside: avoid !important;
             }
-            table, thead, tbody, tfoot {
+            td:last-child {
+                width: auto !important;
+                display: table-cell !important;
+                border: none !important;
+                margin: 0 !important;
+                padding: 8px !important;
+                box-sizing: border-box;
                 page-break-inside: avoid !important;
                 break-inside: avoid !important;
             }
-            .intro-section {
-                page-break-after: avoid !important;
-                break-after: avoid !important;
+            .qr-container {
+                text-align: center !important;
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
             }
         }
     </style>
