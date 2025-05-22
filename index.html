@@ -12,12 +12,13 @@
             background-color: #f4f4f4;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: flex-start; /* changed from center to flex-start */
             min-height: 100vh;
         }
+
         table {
             width: 100%;
-            max-width: 800px;
+            max-width: 1000px;
             border-collapse: collapse;
             background-color: #fff;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -47,7 +48,27 @@
         a:hover {
             text-decoration: underline;
         }
-        @media (max-width: 600px) {
+        .qr-container {
+            text-align: center;
+        }
+        .clue-number {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        .clue-location {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 8px;
+        }
+        img.qr-code {
+            width: 300px;
+            height: 300px;
+            display: block;
+            margin: 0 auto;
+        }
+        @media (max-width: 100%) {
             th, td {
                 font-size: 14px;
                 padding: 8px;
@@ -55,10 +76,80 @@
             table {
                 width: 95%;
             }
+            img.qr-code {
+                width: 150px;
+                height: 150px;
+            }
+            .clue-number {
+                font-size: 16px;
+            }
+            .clue-location {
+                font-size: 14px;
+            }
+        }
+
+        .intro-section {
+            max-width: 1000px;
+            width: 100%;
+            background: #fff;
+            padding: 24px 32px 18px 32px;
+            margin-bottom: 24px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            border-left: 6px solid #4CAF50;
+        }
+
+        .intro-section h1 {
+            margin-top: 0;
+            color: #388e3c;
+            font-size: 2.2em;
+            letter-spacing: 1px;
+        }
+
+        .intro-section h2 {
+            color: #1976d2;
+            margin-bottom: 8px;
+            margin-top: 22px;
+            font-size: 1.2em;
+        }
+
+        .intro-section p, .intro-section ol {
+            font-size: 1.08em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .intro-section ol {
+            padding-left: 22px;
+            margin-bottom: 16px;
+        }
+
+        .intro-section b {
+            color: #1976d2;
+            background: #e3f2fd;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
         }
     </style>
 </head>
 <body>
+    <div class="intro-section">
+        <h1>OCCY - Who stole the supper??</h1>
+        <p>The youth group supper has gone missing. Three suspects — Jan the Janitor, Sally the Snack Lady, and Tim the Tech Guy are under suspicion.</p>
+        <h2>How to play</h2>
+        <ol>
+            <li>Three teams, each team must have a leader with a smart phone.</li>
+            <li>You will solve the mystery by finding clues hidden around the church building. 
+                Each clue will lead you to the next clue, there are 30 clues, you must find the clues in order to solve the puzzle. </li>
+            <li>Each clue is in the form of a QR code, when you find the QR code scan it on your phone to get the next clue.</li>
+            <li>In addition to finding the clue to the next QR code, you will also see some letters in a blue box on each clue. Take a note of those letters as you go as they will help you solve the mystery.</li>
+            <li>The first team to solve the mystery will be rewarded.</li>
+        </ol>
+        <h2>The letters on each clue should end up saying:</h2>
+        <p><b>Jan didn’t do it. Tim didn’t either. Sally definitely did.</b></p>
+        <p>These QR codes will be hidden around the church.</p>
+    </div>
     <table>
         <thead>
             <tr>
@@ -66,6 +157,7 @@
                 <th>Clue Location</th>
                 <th>Points To</th>
                 <th>Clue Text</th>
+                <th>QR Code</th>
             </tr>
         </thead>
         <tbody>
@@ -74,180 +166,210 @@
                 <td>Foyer (Indoor)</td>
                 <td>Back Deck</td>
                 <td>In the foyer where guests first tread, the supper’s gone, sparking dread. On the back deck’s wood where breezes roam, a clue awaits to guide you home.</td>
+                <td><div class="qr-container"><p class="clue-number">Clue 1</p><p class="clue-location">Foyer (Indoor)</p><img class="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://andrewdunn50.github.io/occy_slueths/clue1.html" alt="QR Code for Clue 1"></div></td>
             </tr>
             <tr>
                 <td><a href="clue2.html">2</a></td>
                 <td>Back Deck (Outdoor)</td>
                 <td>Chairs Inside the Church</td>
                 <td>On this deck where night winds sway, the thief’s trail leads you astray. Inside where chairs in worship stand, a clue hides low, beneath a hand.</td>
+                <td><div class="qr-container"><p class="clue-number">Clue 2</p><p class="clue-location">Back Deck (Outdoor)</p><img class="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://andrewdunn50.github.io/occy_slueths/clue2.html" alt="QR Code for Clue 2"></div></td>
             </tr>
             <tr>
                 <td><a href="clue3.html">3</a></td>
                 <td>Chairs Inside the Church (Indoor)</td>
                 <td>Mango Tree</td>
                 <td>Church chairs in rows, so still and grand, hold no supper in their stand. By a fruit tree where sweetness grows, a clue lies hid in its shady glow.</td>
+                <td><div class="qr-container"><p class="clue-number">Clue 3</p><p class="clue-location">Chairs Inside the Church (Indoor)</p><img class="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://andrewdunn50.github.io/occy_slueths/clue3.html" alt="QR Code for Clue 3"></div></td>
             </tr>
             <tr>
                 <td><a href="clue4.html">4</a></td>
                 <td>Mango Tree (Outdoor)</td>
                 <td>Piano</td>
                 <td>Under this fruit tree, sweet and tall, no supper lies, but clues do call. Where ivories play in music’s grace, a clue awaits in their tuneful space.</td>
+                <td><div class="qr-container"><p class="clue-number">Clue 4</p><p class="clue-location">Mango Tree (Outdoor)</p><img class="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://andrewdunn50.github.io/occy_slueths/clue4.html" alt="QR Code for Clue 4"></div></td>
             </tr>
             <tr>
                 <td><a href="clue5.html">5</a></td>
                 <td>Piano (Indoor)</td>
                 <td>Large Shed</td>
                 <td>Ivories sing in joyful blend, but no supper’s here to end. In a large shed where storage stands, a clue lies near in its quiet lands.</td>
+                <td><div class="qr-container"><p class="clue-number">Clue 5</p><p class="clue-location">Piano (Indoor)</p><img class="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://andrewdunn50.github.io/occy_slueths/clue5.html" alt="QR Code for Clue 5"></div></td>
             </tr>
             <tr>
                 <td><a href="clue6.html">6</a></td>
                 <td>Large Shed (Outdoor)</td>
                 <td>Pulpit</td>
                 <td>In this shed where storage stands, no supper rests in this dim light. Where sermons rise with solemn might, a clue lies near the preacher’s light.</td>
+                <td><div class="qr-container"><p class="clue-number">Clue 6</p><p class="clue-location">Large Shed (Outdoor)</p><img class="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://andrewdunn50.github.io/occy_slueths/clue6.html" alt="QR Code for Clue 6"></div></td>
             </tr>
             <tr>
                 <td><a href="clue7.html">7</a></td>
                 <td>Pulpit (Indoor)</td>
                 <td>Behind Large Shed</td>
                 <td>At this pulpit, wisdom’s words fly, but no supper’s here to satisfy. Behind the shed where shadows fall, a clue awaits to guide your call.</td>
+                <td><div class="qr-container"><p class="clue-number">Clue 7</p><p class="clue-location">Pulpit (Indoor)</p><img class="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://andrewdunn50.github.io/occy_slueths/clue7.html" alt="QR Code for Clue 7"></div></td>
             </tr>
             <tr>
                 <td><a href="clue8.html">8</a></td>
                 <td>Behind Large Shed (Outdoor)</td>
                 <td>Drums</td>
                 <td>Behind this shed where shadows creep, no feast is found, no truth is sure. Where rhythms pulse and beats resound, a clue lies near where drums are found.</td>
+                <td><div class="qr-container"><p class="clue-number">Clue 8</p><p class="clue-location">Behind Large Shed (Outdoor)</p><img class="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://andrewdunn50.github.io/occy_slueths/clue8.html" alt="QR Code for Clue 8"></div></td>
             </tr>
             <tr>
                 <td><a href="clue9.html">9</a></td>
                 <td>Drums (Indoor)</td>
                 <td>First Small Shed</td>
                 <td>Drums that boom with rhythm free, hold no feast for you and me. In a small shed, tight and dim, a clue lies hid to guide your hymn.</td>
+                <td><div class="qr-container"><p class="clue-number">Clue 9</p><p class="clue-location">Drums (Indoor)</p><img class="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://andrewdunn50.github.io/occy_slueths/clue9.html" alt="QR Code for Clue 9"></div></td>
             </tr>
             <tr>
                 <td><a href="clue10.html">10</a></td>
                 <td>First Small Shed (Outdoor)</td>
                 <td>Kitchen</td>
                 <td>In this small shed, so tight and bare, the air grows thin, the clue is rare. Where hunger’s tamed and flavors meet, a clue awaits where feasts are sweet.</td>
+                <td><div class="qr-container"><p class="clue-number">Clue 10</p><p class="clue-location">First Small Shed (Outdoor)</p><img class="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://andrewdunn50.github.io/occy_slueths/clue10.html" alt="QR Code for Clue 10"></div></td>
             </tr>
             <tr>
                 <td><a href="clue11.html">11</a></td>
                 <td>Kitchen (Indoor)</td>
                 <td>Second Small Shed</td>
                 <td>Pans and spoons clang in this space, but no supper’s here to taste. Another small shed, dark and tight, holds a clue to guide your light.</td>
+                <td><div class="qr-container"><p class="clue-number">Clue 11</p><p class="clue-location">Kitchen (Indoor)</p><img class="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://andrewdunn50.github.io/occy_slueths/clue11.html" alt="QR Code for Clue 11"></div></td>
             </tr>
             <tr>
                 <td><a href="clue12.html">12</a></td>
                 <td>Second Small Shed (Outdoor)</td>
                 <td>Flower Arrangement</td>
                 <td>In this small shed, so cold and bare, but whispers guide where breezes cold. Where petals dance in artful grace, a clue awaits in their fragrant space.</td>
+                <td><div class="qr-container"><p class="clue-number">Clue 12</p><p class="clue-location">Second Small Shed (Outdoor)</p><img class="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://andrewdunn50.github.io/occy_slueths/clue12.html" alt="QR Code for Clue 12"></div></td>
             </tr>
             <tr>
                 <td><a href="clue13.html">13</a></td>
                 <td>Flower Arrangement (Indoor)</td>
                 <td>Near Outside Air Conditioning Units</td>
                 <td>Flowers bright in sweet array, yet no meal rests to calm the alarm. Where metal hums a cooling tune, a clue awaits beneath the moon.</td>
+                <td><div class="qr-container"><p class="clue-number">Clue 13</p><p class="clue-location">Flower Arrangement (Indoor)</p><img class="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://andrewdunn50.github.io/occy_slueths/clue13.html" alt="QR Code for Clue 13"></div></td>
             </tr>
             <tr>
                 <td><a href="clue14.html">14</a></td>
                 <td>Near Outside Air Conditioning Units (Outdoor)</td>
                 <td>Mothers’ Room</td>
                 <td>By these units, cooling the air, no supper lingers in this site. Where mothers find a soothing retreat, a clue lies low beneath a seat.</td>
+                <td><div class="qr-container"><p class="clue-number">Clue 14</p><p class="clue-location">Near Outside Air Conditioning Units (Outdoor)</p><img class="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://andrewdunn50.github.io/occy_slueths/clue14.html" alt="QR Code for Clue 14"></div></td>
             </tr>
             <tr>
                 <td><a href="clue15.html">15</a></td>
                 <td>Mothers’ Room (Indoor)</td>
                 <td>Under the Ramp</td>
                 <td>In the mothers’ room, so calm and still, yet no feast ends the thief’s foray. A slanted slope, where wheels may glide, conceals a hint where shadows hide.</td>
+                <td><div class="qr-container"><p class="clue-number">Clue 15</p><p class="clue-location">Mothers’ Room (Indoor)</p><img class="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://andrewdunn50.github.io/occy_slueths/clue15.html" alt="QR Code for Clue 15"></div></td>
             </tr>
             <tr>
                 <td><a href="clue16.html">16</a></td>
                 <td>Under the Ramp (Outdoor)</td>
                 <td>Water Fountain</td>
                 <td>Under this ramp where shadows dwell, yet not the meal your heart does seek. Where thirst is quenched by bubbling stream, a clue awaits where waters gleam.</td>
+                <td><div class="qr-container"><p class="clue-number">Clue 16</p><p class="clue-location">Under the Ramp (Outdoor)</p><img class="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://andrewdunn50.github.io/occy_slueths/clue16.html" alt="QR Code for Clue 16"></div></td>
             </tr>
             <tr>
                 <td><a href="clue17.html">17</a></td>
                 <td>Water Fountain (Indoor)</td>
                 <td>Under Front Deck</td>
                 <td>At this fountain where waters pour, no supper’s found, no feast to store. Under the front deck, where shadows creep, a clue lies hid for you to keep.</td>
+                <td><div class="qr-container"><p class="clue-number">Clue 17</p><p class="clue-location">Water Fountain (Indoor)</p><img class="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://andrewdunn50.github.io/occy_slueths/clue17.html" alt="QR Code for Clue 17"></div></td>
             </tr>
             <tr>
                 <td><a href="clue18.html">18</a></td>
                 <td>Under Front Deck (Outdoor)</td>
                 <td>Hymn Book Rack</td>
                 <td>Under this deck where shadows fall, no feast is found, no truth is made. Where hymns are stored in sacred stacks, a clue awaits in pious racks.</td>
+                <td><div class="qr-container"><p class="clue-number">Clue 18</p><p class="clue-location">Under Front Deck (Outdoor)</p><img class="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://andrewdunn50.github.io/occy_slueths/clue18.html" alt="QR Code for Clue 18"></div></td>
             </tr>
             <tr>
                 <td><a href="clue19.html">19</a></td>
                 <td>Hymn Book Rack (Indoor)</td>
                 <td>Back Outdoor Area</td>
                 <td>Hymn books neat in faithful rows, hold no feast where hunger grows. In the back outdoor area, wide and free, a clue awaits by a post you’ll see.</td>
+                <td><div class="qr-container"><p class="clue-number">Clue 19</p><p class="clue-location">Hymn Book Rack (Indoor)</p><img class="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://andrewdunn50.github.io/occy_slueths/clue19.html" alt="QR Code for Clue 19"></div></td>
             </tr>
             <tr>
                 <td><a href="clue20.html">20</a></td>
                 <td>Back Outdoor Area (Outdoor)</td>
                 <td>Storage Closet</td>
                 <td>In this wide field where grasses sway, no supper’s here to end your day. In a storage closet, dark and tight, a clue awaits to shine your light.</td>
+                <td><div class="qr-container"><p class="clue-number">Clue 20</p><p class="clue-location">Back Outdoor Area (Outdoor)</p><img class="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://andrewdunn50.github.io/occy_slueths/clue20.html" alt="QR Code for Clue 20"></div></td>
             </tr>
             <tr>
                 <td><a href="clue21.html">21</a></td>
                 <td>Storage Closet (Indoor)</td>
                 <td>Large Tree</td>
                 <td>In this closet where items hide, no supper’s found, no feast inside. By a large tree with branches tall, a clue awaits to guide your call.</td>
+                <td><div class="qr-container"><p class="clue-number">Clue 21</p><p class="clue-location">Storage Closet (Indoor)</p><img class="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://andrewdunn50.github.io/occy_slueths/clue21.html" alt="QR Code for Clue 21"></div></td>
             </tr>
             <tr>
                 <td><a href="clue22.html">22</a></td>
                 <td>Large Tree (Outdoor)</td>
                 <td>Sound Booth</td>
                 <td>This tall tree with leaves so grand, yet no meal lies to win renown. Where sounds are shaped in wired den, a clue awaits where tech begins.</td>
+                <td><div class="qr-container"><p class="clue-number">Clue 22</p><p class="clue-location">Large Tree (Outdoor)</p><img class="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://andrewdunn50.github.io/occy_slueths/clue22.html" alt="QR Code for Clue 22"></div></td>
             </tr>
             <tr>
                 <td><a href="clue23.html">23</a></td>
                 <td>Sound Booth (Indoor)</td>
                 <td>Fenced-In Kids’ Area</td>
                 <td>In this booth where sounds take flight, no meal is found to mark the end. Where laughter rings and young ones roam, a fenced domain becomes your home.</td>
+                <td><div class="qr-container"><p class="clue-number">Clue 23</p><p class="clue-location">Sound Booth (Indoor)</p><img class="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://andrewdunn50.github.io/occy_slueths/clue23.html" alt="QR Code for Clue 23"></div></td>
             </tr>
             <tr>
                 <td><a href="clue24.html">24</a></td>
                 <td>Fenced-In Kids’ Area (Outdoor)</td>
                 <td>White Board</td>
                 <td>In this kids’ area where fun runs free, the trail grows dim in evening’s light. Where plans are sketched in chalky sheen, a board holds clues where thoughts convene.</td>
+                <td><div class="qr-container"><p class="clue-number">Clue 24</p><p class="clue-location">Fenced-In Kids’ Area (Outdoor)</p><img class="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://andrewdunn50.github.io/occy_slueths/clue24.html" alt="QR Code for Clue 24"></div></td>
             </tr>
             <tr>
                 <td><a href="clue25.html">25</a></td>
                 <td>White Board (Indoor)</td>
                 <td>Outdoor Bench</td>
                 <td>By this white board where lessons shine, no supper’s scent will ease your mind. On an outdoor bench in open air, a clue awaits with rustic care.</td>
+                <td><div class="qr-container"><p class="clue-number">Clue 25</p><p class="clue-location">White Board (Indoor)</p><img class="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://andrewdunn50.github.io/occy_slueths/clue25.html" alt="QR Code for Clue 25"></div></td>
             </tr>
             <tr>
                 <td><a href="clue26.html">26</a></td>
                 <td>Outdoor Bench (Outdoor)</td>
                 <td>Back Corner of Church</td>
                 <td>On this bench where breezes glide, no supper’s here to turn the tide. In the church’s back corner, still and dim, a clue awaits to guide your hymn.</td>
+                <td><div class="qr-container"><p class="clue-number">Clue 26</p><p class="clue-location">Outdoor Bench (Outdoor)</p><img class="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://andrewdunn50.github.io/occy_slueths/clue26.html" alt="QR Code for Clue 26"></div></td>
             </tr>
             <tr>
                 <td><a href="clue27.html">27</a></td>
                 <td>Back Corner of Church (Indoor)</td>
                 <td>Kitchen Cupboard</td>
                 <td>In this back corner where shadows fall, Sally’s snacks cast a tasty call. Check the kitchen cupboard, where treats are stored, for a clue to move you forward.</td>
+                <td><div class="qr-container"><p class="clue-number">Clue 27</p><p class="clue-location">Back Corner of Church (Indoor)</p><img class="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://andrewdunn50.github.io/occy_slueths/clue27.html" alt="QR Code for Clue 27"></div></td>
             </tr>
             <tr>
                 <td><a href="clue28.html">28</a></td>
                 <td>Kitchen Cupboard (Indoor)</td>
                 <td>Front Sign</td>
                 <td>In this cupboard where snacks reside, no supper lies, yet clues abide. Where welcomes shine in evening’s grace, a sign stands proud to mark the place.</td>
+                <td><div class="qr-container"><p class="clue-number">Clue 28</p><p class="clue-location">Kitchen Cupboard (Indoor)</p><img class="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://andrewdunn50.github.io/occy_slueths/clue28.html" alt="QR Code for Clue 28"></div></td>
             </tr>
             <tr>
                 <td><a href="clue29.html">29</a></td>
                 <td>Front Sign (Outdoor)</td>
                 <td>Door Mat</td>
                 <td>By this front sign, the church’s name, no meal is served, no truth is found. Where welcomes tread on woven ground, a mat conceals what must be found.</td>
+                <td><div class="qr-container"><p class="clue-number">Clue 29</p><p class="clue-location">Front Sign (Outdoor)</p><img class="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://andrewdunn50.github.io/occy_slueths/clue29.html" alt="QR Code for Clue 29"></div></td>
             </tr>
             <tr>
                 <td><a href="clue30.html">30</a></td>
                 <td>Door Mat (Outdoor)</td>
                 <td>Under Outside Chairs in Fenced-In Kids’ Area</td>
                 <td>Under this mat where feet do pass, Sally’s feast has brightly led. In the kids’ area, under chairs where young ones play, the supper lies to end your day!</td>
+                <td><div class="qr-container"><p class="clue-number">Clue 30</p><p class="clue-location">Door Mat (Outdoor)</p><img class="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://andrewdunn50.github.io/occy_slueths/clue30.html" alt="QR Code for Clue 30"></div></td>
             </tr>
         </tbody>
     </table>
