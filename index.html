@@ -34,6 +34,17 @@
             letter-spacing: 1.5px;
             font-weight: 700;
             margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .intro-section img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 18px;
+            margin-top: 0;
+            max-width: 100%;
+            height: auto;
         }
 
         .intro-section h2 {
@@ -92,6 +103,13 @@
             padding-top: 22px;
             padding-bottom: 22px;
             box-shadow: 0 2px 6px rgba(44,62,80,0.07);
+        }
+
+        th:nth-child(2) {
+            background: #fff;
+            color: #1976d2;
+            border: none;
+            box-shadow: none;
         }
 
         tr:last-child td {
@@ -222,13 +240,57 @@
                 background: none !important;
             }
         }
+        #answer {
+    margin: 24px 0 16px 0;
+    padding: 20px 28px;
+    background: linear-gradient(90deg, #fffde7 60%, #ffe082 100%);
+    border: 3px solid #1976d2;
+    border-radius: 14px;
+    box-shadow: 0 4px 24px #1976d255, 0 2px 8px #ffd74055;
+    text-align: center;
+    font-size: 1.45em;
+    font-weight: bold;
+    color: #1976d2;
+    letter-spacing: 1.5px;
+    text-shadow: 2px 2px 0 #fff, 0 2px 8px #ffd740aa;
+    transition: box-shadow 0.2s;
+}
+#answer b {
+    color: #d32f2f;
+    background: #fff176;
+    padding: 6px 16px;
+    border-radius: 8px;
+    font-size: 1.2em;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 0 #fff, 0 2px 8px #d32f2faa;
+}
     </style>
+    <script>
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            window.scrollTo(0, 1);
+        }, 0);
+
+        // Play button for sound
+        const btn = document.getElementById('play-sound');
+        const audio = document.getElementById('sound-audio');
+        if (btn && audio) {
+            btn.addEventListener('click', () => {
+                audio.currentTime = 0;
+                audio.play();
+            });
+        }
+    });
+</script>
 </head>
 <body>
     <div class="intro-section">
-        <h1>OCCY - Who stole the supper??</h1>
+        <h1>OCCY - The case of the missing supper</h1>
+        <img src="missingsupper.jpg" id="play-sound"/>
+<audio id="sound-audio" src="sound.mp3"></audio>
         <p>The youth group supper has gone missing. Three suspects — Jan the Janitor, Sally the Snack Lady, and Tim the Tech Guy are under suspicion.</p>
-        <h2>How to play</h2>
+        <h2>How to solve the mystery</h2>
         <ol>
             <li>Three teams, each team must have a leader with a smart phone.</li>
             <li>You will solve the mystery by finding clues hidden around the church building. 
@@ -238,8 +300,11 @@
             <li>In addition to finding the clue to the next QR code, you will also see some letters in a blue box on each clue. Take a note of those letters as you go as they will help you solve the mystery.</li>
             <li>The first team to solve the mystery will be rewarded.</li>
         </ol>
-        <h2>The letters on each clue should end up saying (when combined):</h2>
+        <h2 id="reveal-answer">The letters on each clue should end up saying (when combined)</h2>
+        <div id="answer">
         <p><b>Jan didn’t do it. Tim didn’t either. Sally definitely did.</b></p>
+        </div>
+
         <p>These QR codes will be hidden around the church.</p>
     </div>
     <table>
@@ -472,5 +537,24 @@
             }, 0);
         });
     </script>
+    <script>
+window.addEventListener('DOMContentLoaded', () => {
+    // Hide the answer initially
+    const answerDiv = document.getElementById('answer');
+    const revealBtn = document.getElementById('reveal-answer');
+    let shown = false;
+    if (answerDiv && revealBtn) {
+        answerDiv.style.display = 'none';
+        revealBtn.style.cursor = 'pointer';
+        revealBtn.style.textDecoration = 'underline';
+        revealBtn.addEventListener('click', () => {
+            shown = !shown;
+            answerDiv.style.display = shown ? 'block' : 'none';
+            revealBtn.style.textDecoration = shown ? 'none' : 'underline';
+            revealBtn.style.cursor = shown ? 'default' : 'pointer';
+        });
+    }
+});
+</script>
 </body>
 </html>
