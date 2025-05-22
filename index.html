@@ -131,6 +131,21 @@
             border-radius: 4px;
             font-weight: 600;
         }
+
+        @media print {
+            tr {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+            table, thead, tbody, tfoot {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+            .intro-section {
+                page-break-after: avoid !important;
+                break-after: avoid !important;
+            }
+        }
     </style>
 </head>
 <body>
